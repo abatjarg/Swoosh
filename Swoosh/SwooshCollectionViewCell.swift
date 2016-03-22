@@ -11,5 +11,6 @@ import UIKit
 class SwooshCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
 }

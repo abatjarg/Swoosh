@@ -13,6 +13,7 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet var collectionView: UICollectionView!
     
     let swooshDataSource = SwooshDataSource()
+    let store = ShotStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,10 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
         
         collectionView.dataSource = swooshDataSource
         collectionView.delegate = self
+        
+        print(DribbbleAPI.recentShotsURL())
+        
+        store.fetchRecentShots()
     }
 
     override func didReceiveMemoryWarning() {
