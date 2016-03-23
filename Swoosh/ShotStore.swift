@@ -10,6 +10,7 @@ import Foundation
 
 class ShotStore {
     
+    // NSURLSesssion - factory for NSURLSessionTask instances
     let session: NSURLSession = {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         return NSURLSession(configuration: config)
@@ -17,14 +18,23 @@ class ShotStore {
     
     func fetchRecentShots() {
         
+        // Define URL with recent shots URL
         let url = DribbbleAPI.recentShotsURL()
+        
+        // Define the request object
         let request = NSURLRequest(URL: url)
+        
+        // Define NSURLSessionDataTask to request data from dribbble - task will be in suspended state
         let task = session.dataTaskWithRequest(request){
             (data, response, error) -> Void in
             
             if let jsonData = data {
-                if let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding){
-                    print(jsonString)
+                do {
+                    let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
+                    print(jsonObject)
+                }
+                catch let error {
+                    print("Error creating JSON object: \(error)")
                 }
             }
             else if let requestError = error {
@@ -34,6 +44,7 @@ class ShotStore {
                 print("Unexpected error with the request")
             }
         }
+        // This will start the api request to the service
         task.resume()
     }
     

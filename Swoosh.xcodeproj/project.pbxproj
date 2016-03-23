@@ -18,6 +18,8 @@
 		68B0A6EA1C9BB72E000751EF /* SwooshCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B0A6E91C9BB72E000751EF /* SwooshCollectionViewCell.swift */; };
 		68B0A6EC1C9BBDC3000751EF /* DribbbleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B0A6EB1C9BBDC3000751EF /* DribbbleAPI.swift */; };
 		68DEEE8D1CA0E2140073282F /* ShotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DEEE8C1CA0E2140073282F /* ShotStore.swift */; };
+		68DEEE8F1CA0EFF80073282F /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DEEE8E1CA0EFF80073282F /* Shot.swift */; };
+		68DEEE911CA0F0A80073282F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DEEE901CA0F0A80073282F /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		68B0A6E91C9BB72E000751EF /* SwooshCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwooshCollectionViewCell.swift; sourceTree = "<group>"; };
 		68B0A6EB1C9BBDC3000751EF /* DribbbleAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DribbbleAPI.swift; sourceTree = "<group>"; };
 		68DEEE8C1CA0E2140073282F /* ShotStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotStore.swift; sourceTree = "<group>"; };
+		68DEEE8E1CA0EFF80073282F /* Shot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
+		68DEEE901CA0F0A80073282F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				68B0A6E91C9BB72E000751EF /* SwooshCollectionViewCell.swift */,
 				68B0A6EB1C9BBDC3000751EF /* DribbbleAPI.swift */,
 				68DEEE8C1CA0E2140073282F /* ShotStore.swift */,
+				68DEEE8E1CA0EFF80073282F /* Shot.swift */,
+				68DEEE901CA0F0A80073282F /* User.swift */,
 				68B0A6D01C9A57E1000751EF /* Assets.xcassets */,
 				68B0A6DC1C9A58C3000751EF /* Images */,
 				68B0A6D21C9A57E1000751EF /* LaunchScreen.storyboard */,
@@ -168,8 +174,10 @@
 				68DEEE8D1CA0E2140073282F /* ShotStore.swift in Sources */,
 				68B0A6CA1C9A57E1000751EF /* AppDelegate.swift in Sources */,
 				68B0A6E81C9A5D73000751EF /* SwooshDataSource.swift in Sources */,
+				68DEEE911CA0F0A80073282F /* User.swift in Sources */,
 				68B0A6E61C9A5D56000751EF /* SwooshViewController.swift in Sources */,
 				68B0A6EA1C9BB72E000751EF /* SwooshCollectionViewCell.swift in Sources */,
+				68DEEE8F1CA0EFF80073282F /* Shot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
