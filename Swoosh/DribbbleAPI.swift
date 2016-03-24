@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 
 // Below will define how to get the information back
@@ -19,6 +20,10 @@ enum Method: String {
 enum ShotsResult {
     case Success([Shot])
     case Failure(ErrorType)
+}
+
+enum DribbleError: ErrorType {
+    case InvalidJSONData
 }
 
 // The DribbbleAPI struct will be responsible for knowing and handling all Dribbble related information:
@@ -73,7 +78,8 @@ struct DribbbleAPI {
     
     static func photosFromJSONData(data: NSData) -> ShotsResult {
         do {
-            let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+            let json = JSON(data: data)
+            print(json[0]["images"]["normal"])
             
             var finalShots = [Shot]()
             

@@ -23,8 +23,6 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
         collectionView.dataSource = swooshDataSource
         collectionView.delegate = self
         
-        print(DribbbleAPI.recentShotsURL())
-        
         store.fetchRecentShots()
     }
 

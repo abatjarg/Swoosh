@@ -16,6 +16,7 @@ class ShotStore {
         return NSURLSession(configuration: config)
     }()
     
+    // This method will be called form a class that uses ShotsStore (e.g SwooshViewController)
     func fetchRecentShots() {
         
         // Define URL with recent shots URL
@@ -28,24 +29,18 @@ class ShotStore {
         let task = session.dataTaskWithRequest(request){
             (data, response, error) -> Void in
             
-            if let jsonData = data {
-                do {
-                    let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
-                    print(jsonObject)
-                }
-                catch let error {
-                    print("Error creating JSON object: \(error)")
-                }
-            }
-            else if let requestError = error {
-                print("Error fetching recent shots: \(requestError)")
-            }
-            else {
-                print("Unexpected error with the request")
-            }
+            let result = self.processRecentPhotosRequest(data: data, error: error)
         }
         // This will start the api request to the service
         task.resume()
+    }
+    
+    func processRecentPhotosRequest(data data: NSData?, error: NSError?) -> ShotsResult {
+        guard let jsonData = data else {
+            return .Failure(error!)
+        }
+        
+        return DribbbleAPI.photosFromJSONData(jsonData)
     }
     
 }
