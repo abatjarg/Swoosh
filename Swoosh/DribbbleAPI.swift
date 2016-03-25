@@ -79,7 +79,10 @@ struct DribbbleAPI {
     static func photosFromJSONData(data: NSData) -> ShotsResult {
         do {
             let json = JSON(data: data)
-            print(json[0]["images"]["normal"])
+            
+            for (key,subJson):(String, JSON) in json {
+                print("Key: \(key), subJson: \(subJson)")
+            }
             
             var finalShots = [Shot]()
             
