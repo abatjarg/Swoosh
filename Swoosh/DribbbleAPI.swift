@@ -76,29 +76,25 @@ struct DribbbleAPI {
         return dribbbleURL(method: .MostCommentedShots, parameters: ["sort":"comments"])
     }
     
+    // To-do: Add guard statement to protect against invaled JSON
     static func photosFromJSONData(data: NSData) -> ShotsResult {
-        do {
-            let json = JSON(data: data)
+        
+            let jsonObject = JSON(data: data)
             
             var finalShots = [Shot]()
             
-            for (_,subJson):(String, JSON) in json {
-                let id = subJson["id"].intValue
-                let title = subJson["title"].stringValue
-                let description = subJson["description"].stringValue
-                let viewsCount = subJson["views_count"].intValue
-                let likesCount = subJson["likes_count"].intValue
-                let imageUrls = subJson["images"]
-                let imageUrl = NSURL(string: imageUrls["normal"].stringValue)!
-                let shot = Shot(id: id, title: title, description: description, viewsCount: viewsCount, likesCount: likesCount, imageUrl: imageUrl)
-                finalShots.append(shot)
+            for (_, shotJson) in jsonObject {
+                let shotId = shotJson["id"].intValue
+                let title = shotJson["titile"].stringValue
+                let description = shotJson["description"].stringValue
+                let viewsCount = shotJson["views_count"].intValue
+                let likesCount = shotJson["likes_count"].intValue
+                let imageUrl = shotJson["images"]["normal"].stringValue
+                
+                finalShots.append(Shot(id: shotId, title: title, description: description, viewsCount: viewsCount, likesCount: likesCount, imageUrl: NSURL(string: imageUrl)!))
             }
             
             return .Success(finalShots)
-        }
-        catch let error {
-            return .Failure(error)
-        }
     }
 }
 
