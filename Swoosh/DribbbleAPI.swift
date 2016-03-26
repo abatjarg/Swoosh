@@ -80,11 +80,19 @@ struct DribbbleAPI {
         do {
             let json = JSON(data: data)
             
-            for (key,subJson):(String, JSON) in json {
-                print("Key: \(key), subJson: \(subJson)")
-            }
-            
             var finalShots = [Shot]()
+            
+            for (_,subJson):(String, JSON) in json {
+                let id = subJson["id"].intValue
+                let title = subJson["title"].stringValue
+                let description = subJson["description"].stringValue
+                let viewsCount = subJson["views_count"].intValue
+                let likesCount = subJson["likes_count"].intValue
+                let imageUrls = subJson["images"]
+                let imageUrl = NSURL(string: imageUrls["normal"].stringValue)!
+                let shot = Shot(id: id, title: title, description: description, viewsCount: viewsCount, likesCount: likesCount, imageUrl: imageUrl)
+                finalShots.append(shot)
+            }
             
             return .Success(finalShots)
         }

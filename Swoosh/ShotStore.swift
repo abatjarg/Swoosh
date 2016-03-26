@@ -30,6 +30,8 @@ class ShotStore {
             (data, response, error) -> Void in
             
             let result = self.processRecentPhotosRequest(data: data, error: error)
+            
+            print(result)
         }
         // This will start the api request to the service
         task.resume()
