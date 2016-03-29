@@ -11,6 +11,7 @@ import UIKit
 class SwooshViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
+    var image: UIImage?
     
     let swooshDataSource = SwooshDataSource()
     let store = ShotStore()
@@ -23,7 +24,19 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
         collectionView.dataSource = swooshDataSource
         collectionView.delegate = self
         
-        store.fetchRecentShots()
+        store.fetchRecentShots() {
+            (shotsResult) -> Void in
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock() {
+                switch shotsResult {
+                case let .Success(shots):
+                    self.swooshDataSource.shots = shots
+                case let .Failure(error):
+                    self.swooshDataSource.shots.removeAll()
+                }
+                self.collectionView.reloadSections(NSIndexSet(index: 0))
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

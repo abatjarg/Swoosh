@@ -6,7 +6,16 @@
 //  Copyright © 2016 Ariunjargal. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+enum ImageResult {
+    case Success(UIImage)
+    case Failure(ErrorType)
+}
+
+enum ShotError: ErrorType {
+    case ImageCreationError
+}
 
 class ShotStore {
     
@@ -17,7 +26,7 @@ class ShotStore {
     }()
     
     // This method will be called form a class that uses ShotsStore (e.g SwooshViewController)
-    func fetchRecentShots() {
+    func fetchRecentShots(completion completion: (ShotsResult) -> Void) {
         
         // Define URL with recent shots URL
         let url = DribbbleAPI.recentShotsURL()
@@ -31,7 +40,7 @@ class ShotStore {
             
             let result = self.processRecentPhotosRequest(data: data, error: error)
             
-            print(result)
+            completion(result)
         }
         // This will start the api request to the service
         task.resume()
@@ -43,6 +52,40 @@ class ShotStore {
         }
         
         return DribbbleAPI.photosFromJSONData(jsonData)
+    }
+    
+    func fetchImageForShot(shot: Shot, completion: (ImageResult) -> Void) {
+        let shotURL = shot.imageUrl
+        let request = NSURLRequest(URL: shotURL)
+        
+        let task = session.dataTaskWithRequest(request) {
+            (data, response, error) -> Void in
+            
+            let result = self.processImageRequest(data: data, error: error)
+            
+            if case let .Success(image) = result {
+                shot.image = image
+            }
+            
+            completion(result)
+            
+        }
+        task.resume()
+    }
+    
+    func processImageRequest(data data: NSData?, error: NSError?) -> ImageResult {
+        guard let
+            imageData = data,
+            image = UIImage(data: imageData) else {
+                if data == nil {
+                    return .Failure(error!)
+                }
+                else {
+                    return .Failure(ShotError.ImageCreationError)
+                }
+        }
+        
+        return .Success(image)
     }
     
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Ariunjargal. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Shot {
     
@@ -16,6 +16,7 @@ class Shot {
     let viewsCount: Int
     let likesCount: Int
     let imageUrl: NSURL
+    var image: UIImage?
     
     init(id: Int, title: String, description: String, viewsCount: Int, likesCount: Int, imageUrl: NSURL) {
         self.id = id
@@ -25,4 +26,23 @@ class Shot {
         self.likesCount = likesCount
         self.imageUrl = imageUrl
     }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
