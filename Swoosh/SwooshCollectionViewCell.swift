@@ -12,4 +12,13 @@ class SwooshCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
     
+    func updateWithImage(image: UIImage?) {
+        if let imageToDisplay = image {
+            imageView.image = imageToDisplay
+        }
+        else
+        {
+            imageView.image = nil 
+        }
+    }
 }

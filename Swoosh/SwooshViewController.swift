@@ -44,6 +44,23 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        let shot = swooshDataSource.shots[indexPath.row]
+        
+        store.fetchImageForShot(shot) {
+            (result) -> Void in
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock() {
+                let shotIndex = self.swooshDataSource.shots.indexOf(shot)!
+                let shotIndexPath = NSIndexPath(forRow: shotIndex, inSection: 0)
+                
+                if let cell = self.collectionView.cellForItemAtIndexPath(shotIndexPath) as? SwooshCollectionViewCell {
+                    cell.updateWithImage(shot.image)
+                }
+            }
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

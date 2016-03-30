@@ -29,6 +29,12 @@ class Shot {
     
 }
 
+extension Shot: Equatable {}
+
+func == (lhs: Shot, rhs: Shot) -> Bool {
+    return lhs.id == rhs.id
+}
+
 
 
 
