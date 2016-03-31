@@ -11,14 +11,17 @@ import UIKit
 class SwooshCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func updateWithImage(image: UIImage?) {
         if let imageToDisplay = image {
+            activityIndicator.stopAnimating()
             imageView.image = imageToDisplay
         }
         else
         {
-            imageView.image = nil 
+            activityIndicator.startAnimating()
+            imageView.image = nil
         }
     }
 }
