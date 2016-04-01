@@ -12,6 +12,7 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     var image: UIImage?
+    var refreshController: UIRefreshControl!
     
     let swooshDataSource = SwooshDataSource()
     let store = ShotStore()
@@ -24,6 +25,14 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
         collectionView.dataSource = swooshDataSource
         collectionView.delegate = self
         
+        self.refreshController = UIRefreshControl()
+        self.refreshController.addTarget(self, action: #selector(SwooshViewController.refresh), forControlEvents: .ValueChanged)
+        
+        self.collectionView.addSubview(refreshController)
+        refresh()
+    }
+    
+    func refresh() {
         store.fetchRecentShots() {
             (shotsResult) -> Void in
             
@@ -31,6 +40,7 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
                 switch shotsResult {
                 case let .Success(shots):
                     self.swooshDataSource.shots = shots
+                    self.refreshController.endRefreshing()
                 case let .Failure(error):
                     self.swooshDataSource.shots.removeAll()
                 }
