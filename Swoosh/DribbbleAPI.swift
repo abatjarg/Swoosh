@@ -49,7 +49,8 @@ struct DribbbleAPI {
         var queryItems = [NSURLQueryItem]()
         
         let baseParams = [
-            "access_token" : access_token
+            "access_token" : access_token,
+            "per_page"     : "50"
         ]
         
         for (key, value) in baseParams {
@@ -89,7 +90,7 @@ struct DribbbleAPI {
                 let description = shotJson["description"].stringValue
                 let viewsCount = shotJson["views_count"].intValue
                 let likesCount = shotJson["likes_count"].intValue
-                let imageUrl = shotJson["images"]["normal"].stringValue
+                let imageUrl = shotJson["images"]["teaser"].stringValue
                 
                 finalShots.append(Shot(id: shotId, title: title, description: description, viewsCount: viewsCount, likesCount: likesCount, imageUrl: NSURL(string: imageUrl)!))
             }
