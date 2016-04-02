@@ -13,6 +13,7 @@ class SwooshCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
     func updateWithImage(image: UIImage?) {
         if let imageToDisplay = image {
             activityIndicator.stopAnimating()

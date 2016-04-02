@@ -34,7 +34,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Iu-M9-BqH">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Iu-M9-BqH">
                                                     <rect key="frame" x="3" y="2" width="85" height="85"/>
                                                 </imageView>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b8X-8a-Kdi">
@@ -44,6 +44,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="4Iu-M9-BqH" secondAttribute="bottom" constant="2" id="GJF-uv-ySj"/>
+                                            <constraint firstItem="4Iu-M9-BqH" firstAttribute="leading" secondItem="SBu-75-gpx" secondAttribute="leading" constant="2" id="RX1-bu-Wrr"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Iu-M9-BqH" secondAttribute="trailing" constant="2" id="UH3-nF-EIn"/>
+                                            <constraint firstItem="4Iu-M9-BqH" firstAttribute="top" secondItem="SBu-75-gpx" secondAttribute="top" constant="2" id="ZwL-Fz-gqL"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="activityIndicator" destination="b8X-8a-Kdi" id="chi-LD-i42"/>
                                             <outlet property="imageView" destination="4Iu-M9-BqH" id="PL1-6v-QTj"/>
