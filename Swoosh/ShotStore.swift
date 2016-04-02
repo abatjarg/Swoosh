@@ -54,8 +54,27 @@ class ShotStore {
         return DribbbleAPI.photosFromJSONData(jsonData)
     }
     
-    func fetchImageForShot(shot: Shot, completion: (ImageResult) -> Void) {
-        let shotURL = shot.imageUrl
+    func fetchTeaserImageForShot(shot: Shot, completion: (ImageResult) -> Void) {
+        let shotURL = shot.teaserImageUrl
+        let request = NSURLRequest(URL: shotURL)
+        
+        let task = session.dataTaskWithRequest(request) {
+            (data, response, error) -> Void in
+            
+            let result = self.processImageRequest(data: data, error: error)
+            
+            if case let .Success(image) = result {
+                shot.image = image
+            }
+            
+            completion(result)
+            
+        }
+        task.resume()
+    }
+    
+    func fetchNormalImageForShot(shot: Shot, completion: (ImageResult) -> Void) {
+        let shotURL = shot.normalImageUrl
         let request = NSURLRequest(URL: shotURL)
         
         let task = session.dataTaskWithRequest(request) {

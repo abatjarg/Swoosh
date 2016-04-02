@@ -57,7 +57,7 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         let shot = swooshDataSource.shots[indexPath.row]
         
-        store.fetchImageForShot(shot) {
+        store.fetchTeaserImageForShot(shot) {
             (result) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock() {
@@ -76,14 +76,15 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate, UICollec
         return CGSize(width: size, height: size)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowShot" {
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems()?.first {
+                let shot = swooshDataSource.shots[selectedIndexPath.row]
+                let destinationVC = segue.destinationViewController as! SwooshShotDetailViewController
+                destinationVC.shot = shot
+                destinationVC.store = store
+            }
+        }
     }
-    */
 
 }
