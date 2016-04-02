@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SwooshViewController: UIViewController, UICollectionViewDelegate {
+class SwooshViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var collectionView: UICollectionView!
     var image: UIImage?
@@ -71,6 +71,10 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let size = (self.collectionView.bounds.size.width - (2*3) - 4) / 4
+        return CGSize(width: size, height: size)
+    }
 
     /*
     // MARK: - Navigation

@@ -24,4 +24,5 @@ class SwooshCollectionViewCell: UICollectionViewCell {
             imageView.image = nil
         }
     }
+    
 }
