@@ -74,7 +74,15 @@ class ShotStore {
     }
     
     func fetchNormalImageForShot(shot: Shot, completion: (ImageResult) -> Void) {
-        let shotURL = shot.normalImageUrl
+        var shotURL = shot.normalImageUrl
+        
+        if !shot.hidpiImageUrl.absoluteString.isEmpty {
+            shotURL = shot.hidpiImageUrl
+        }
+        
+        print("normal: \(shot.normalImageUrl)")
+        print("hidpi: \(shot.hidpiImageUrl)")
+        
         let request = NSURLRequest(URL: shotURL)
         
         let task = session.dataTaskWithRequest(request) {

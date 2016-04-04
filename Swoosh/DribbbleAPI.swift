@@ -86,14 +86,15 @@ struct DribbbleAPI {
             
             for (_, shotJson) in jsonObject {
                 let shotId = shotJson["id"].intValue
-                let title = shotJson["titile"].stringValue
+                let title = shotJson["title"].stringValue
                 let description = shotJson["description"].stringValue
                 let viewsCount = shotJson["views_count"].intValue
                 let likesCount = shotJson["likes_count"].intValue
                 let teaserImageUrl = shotJson["images"]["teaser"].stringValue
-                let normalImageUrl = shotJson["images"]["hidpi"].stringValue
+                let hidpiImageUrl = shotJson["images"]["hidpi"].stringValue
+                let normalImageUrl = shotJson["images"]["normal"].stringValue
                 
-                finalShots.append(Shot(id: shotId, title: title, description: description, viewsCount: viewsCount, likesCount: likesCount, teaserImageUrl: NSURL(string: teaserImageUrl)!, normalImageUrl: NSURL(string: normalImageUrl)! ))
+                finalShots.append(Shot(id: shotId, title: title, description: description, viewsCount: viewsCount, likesCount: likesCount, teaserImageUrl: NSURL(string: teaserImageUrl)!, normalImageUrl: NSURL(string: normalImageUrl)!, hidpiImageUrl: NSURL(string: hidpiImageUrl)!))
             }
             
             return .Success(finalShots)

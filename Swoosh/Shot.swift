@@ -17,9 +17,10 @@ class Shot {
     let likesCount: Int
     let teaserImageUrl: NSURL
     let normalImageUrl: NSURL
+    let hidpiImageUrl: NSURL
     var image: UIImage?
     
-    init(id: Int, title: String, description: String, viewsCount: Int, likesCount: Int, teaserImageUrl: NSURL, normalImageUrl: NSURL) {
+    init(id: Int, title: String, description: String, viewsCount: Int, likesCount: Int, teaserImageUrl: NSURL, normalImageUrl: NSURL, hidpiImageUrl: NSURL) {
         self.id = id
         self.title = title
         self.description = description
@@ -27,6 +28,7 @@ class Shot {
         self.likesCount = likesCount
         self.teaserImageUrl = teaserImageUrl
         self.normalImageUrl = normalImageUrl
+        self.hidpiImageUrl = hidpiImageUrl
     }
     
 }
