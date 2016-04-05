@@ -15,6 +15,8 @@ class SwooshShotDetailViewController: UIViewController {
     @IBOutlet weak var viewCount: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var shotImage: UIImage!
+    
     var shot: Shot! {
         didSet {
             navigationItem.title = shot.title
@@ -36,6 +38,7 @@ class SwooshShotDetailViewController: UIViewController {
             switch result {
             case let .Success(image):
                 NSOperationQueue.mainQueue().addOperationWithBlock() {
+                    self.shotImage = image
                     self.imageView.image = image
                     self.activityIndicator.stopAnimating()
                 }
@@ -43,15 +46,20 @@ class SwooshShotDetailViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
-        
-        self.likeCount.text = "\(shot.likesCount)"
-        self.viewCount.text = "\(shot.viewsCount)"
+
     }
     
     func tapAction(gestureRecognizer: UITapGestureRecognizer)
     {
         print("tap")
         self.performSegueWithIdentifier("ShowImage", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowImage" {
+            let dVC = segue.destinationViewController as! SwooshShotImageViewController
+            dVC.shotImage = self.shotImage
+        }
     }
     
 }

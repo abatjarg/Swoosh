@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="2261" y="790"/>
         </scene>
-        <!--View Controller-->
+        <!--Swoosh Shot Image View Controller-->
         <scene sceneID="R83-4s-pLs">
             <objects>
-                <viewController id="sCd-h0-Y7e" sceneMemberID="viewController">
+                <viewController id="sCd-h0-Y7e" customClass="SwooshShotImageViewController" customModule="Swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yc2-0q-MSP"/>
                         <viewControllerLayoutGuide type="bottom" id="Roz-ar-aFO"/>
@@ -182,10 +182,33 @@
                     <view key="view" contentMode="scaleToFill" id="0K7-FE-zAv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7TQ-S7-xjt">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="dd9-zv-VJ6" appends="YES" id="zp6-wB-TDC"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7TQ-S7-xjt" firstAttribute="leading" secondItem="0K7-FE-zAv" secondAttribute="leading" id="EXD-Km-vvt"/>
+                            <constraint firstItem="7TQ-S7-xjt" firstAttribute="top" secondItem="yc2-0q-MSP" secondAttribute="bottom" id="HjV-RA-bfk"/>
+                            <constraint firstItem="Roz-ar-aFO" firstAttribute="top" secondItem="7TQ-S7-xjt" secondAttribute="bottom" id="uD0-Mb-NTX"/>
+                            <constraint firstAttribute="trailing" secondItem="7TQ-S7-xjt" secondAttribute="trailing" id="xAJ-mo-K7a"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="7TQ-S7-xjt" id="qNn-51-cql"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUr-1J-JHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="dd9-zv-VJ6">
+                    <connections>
+                        <action selector="handlePinch:" destination="sCd-h0-Y7e" id="FPj-3b-Ng6"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3019" y="790"/>
         </scene>
