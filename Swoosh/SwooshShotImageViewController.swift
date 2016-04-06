@@ -8,8 +8,9 @@
 
 import UIKit
 
-class SwooshShotImageViewController: UIViewController {
+class SwooshShotImageViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var scrolllView: UIScrollView!
     @IBOutlet var imageView: UIImageView!
     
     var shotImage: UIImage!
@@ -18,14 +19,13 @@ class SwooshShotImageViewController: UIViewController {
         super.viewDidLoad()
         
         self.imageView.image = shotImage
+        
+        self.scrolllView.minimumZoomScale = 1.0
+        self.scrolllView.maximumZoomScale = 6.0
     }
     
-    @IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
-        if let view = imageView {
-            imageView.transform = CGAffineTransformScale(view.transform,
-                                                    recognizer.scale, recognizer.scale)
-            recognizer.scale = 1
-            
-        }
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return self.imageView
     }
+    
 }

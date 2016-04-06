@@ -80,9 +80,6 @@ class ShotStore {
             shotURL = shot.hidpiImageUrl
         }
         
-        print("normal: \(shot.normalImageUrl)")
-        print("hidpi: \(shot.hidpiImageUrl)")
-        
         let request = NSURLRequest(URL: shotURL)
         
         let task = session.dataTaskWithRequest(request) {

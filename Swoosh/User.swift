@@ -10,6 +10,14 @@ import Foundation
 
 class User {
     
+    let name: String
+    let username: String
+    let bio: String
     
+    init(name: String, username: String, bio: String) {
+        self.name = name
+        self.username = username
+        self.bio = bio 
+    }
     
 }

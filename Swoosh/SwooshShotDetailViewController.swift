@@ -14,6 +14,11 @@ class SwooshShotDetailViewController: UIViewController {
     @IBOutlet weak var likeCount: UILabel!
     @IBOutlet weak var viewCount: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var userImage: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
     
     var shotImage: UIImage!
     
@@ -27,6 +32,13 @@ class SwooshShotDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.nameLabel.text = shot.user.name
+        self.usernameLabel.text = shot.user.username
+        self.bioLabel.text = shot.user.bio
+        
+        self.userImage.layer.cornerRadius = self.userImage.frame.size.height / 2.0 
+        self.userImage.clipsToBounds = true
         
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(SwooshShotDetailViewController.tapAction(_:)))
         doubleTapGesture.numberOfTapsRequired = 2
