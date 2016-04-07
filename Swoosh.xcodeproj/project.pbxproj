@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6855E4111CB058E600FAA940 /* SwooshShotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855E4101CB058E600FAA940 /* SwooshShotDetailViewController.swift */; };
 		6855E4131CB33EA800FAA940 /* SwooshShotImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855E4121CB33EA800FAA940 /* SwooshShotImageViewController.swift */; };
+		6871B8EF1CB5FB830053EBF7 /* SwooshUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6871B8EE1CB5FB830053EBF7 /* SwooshUserDetailViewController.swift */; };
 		68B0A6CA1C9A57E1000751EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B0A6C91C9A57E1000751EF /* AppDelegate.swift */; };
 		68B0A6CF1C9A57E1000751EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B0A6CD1C9A57E1000751EF /* Main.storyboard */; };
 		68B0A6D11C9A57E1000751EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68B0A6D01C9A57E1000751EF /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		027CC8B5D5396A02F43A8C10 /* Pods-Swoosh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swoosh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swoosh/Pods-Swoosh.debug.xcconfig"; sourceTree = "<group>"; };
 		6855E4101CB058E600FAA940 /* SwooshShotDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwooshShotDetailViewController.swift; sourceTree = "<group>"; };
 		6855E4121CB33EA800FAA940 /* SwooshShotImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwooshShotImageViewController.swift; sourceTree = "<group>"; };
+		6871B8EE1CB5FB830053EBF7 /* SwooshUserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwooshUserDetailViewController.swift; sourceTree = "<group>"; };
 		68B0A6C61C9A57E1000751EF /* Swoosh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swoosh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B0A6C91C9A57E1000751EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68B0A6CE1C9A57E1000751EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				68B0A6C91C9A57E1000751EF /* AppDelegate.swift */,
 				68B0A6CD1C9A57E1000751EF /* Main.storyboard */,
+				6871B8EE1CB5FB830053EBF7 /* SwooshUserDetailViewController.swift */,
 				6855E4101CB058E600FAA940 /* SwooshShotDetailViewController.swift */,
 				6855E4121CB33EA800FAA940 /* SwooshShotImageViewController.swift */,
 				68B0A6E51C9A5D56000751EF /* SwooshViewController.swift */,
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68B0A6EC1C9BBDC3000751EF /* DribbbleAPI.swift in Sources */,
+				6871B8EF1CB5FB830053EBF7 /* SwooshUserDetailViewController.swift in Sources */,
 				68DEEE8D1CA0E2140073282F /* ShotStore.swift in Sources */,
 				68B0A6CA1C9A57E1000751EF /* AppDelegate.swift in Sources */,
 				68B0A6E81C9A5D73000751EF /* SwooshDataSource.swift in Sources */,

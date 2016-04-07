@@ -45,6 +45,18 @@ class SwooshShotDetailViewController: UIViewController {
         self.imageView.userInteractionEnabled = true
         self.imageView.addGestureRecognizer(doubleTapGesture)
         
+        store.fetchUserAvatarImage(shot) {
+            (result) -> Void in
+            switch result {
+            case let .Success(image):
+                NSOperationQueue.mainQueue().addOperationWithBlock() {
+                    self.userImage.image = image
+                }
+            case let .Failure(error):
+                print("Error fetching image for photo: \(error)")
+            }
+        }
+        
         store.fetchNormalImageForShot(shot) {
             (result) -> Void in
             switch result {
@@ -71,6 +83,9 @@ class SwooshShotDetailViewController: UIViewController {
         if segue.identifier == "ShowImage" {
             let dVC = segue.destinationViewController as! SwooshShotImageViewController
             dVC.shotImage = self.shotImage
+        } else if segue.identifier == "ShowUser" {
+            let dVC = segue.destinationViewController as! SwooshUserDetailViewController
+            dVC.user = shot.user
         }
     }
     

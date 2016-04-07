@@ -97,6 +97,26 @@ class ShotStore {
         task.resume()
     }
     
+    func fetchUserAvatarImage(shot: Shot, completion: (ImageResult) -> Void) {
+        let shotURL = shot.user.avatarUrl
+        
+        let request = NSURLRequest(URL: shotURL)
+        
+        let task = session.dataTaskWithRequest(request) {
+            (data, response, error) -> Void in
+            
+            let result = self.processImageRequest(data: data, error: error)
+            
+            if case let .Success(image) = result {
+                shot.user.image = image
+            }
+            
+            completion(result)
+            
+        }
+        task.resume()
+    }
+    
     func processImageRequest(data data: NSData?, error: NSError?) -> ImageResult {
         guard let
             imageData = data,

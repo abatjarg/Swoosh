@@ -148,7 +148,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="HaE-5F-yiR" kind="show" id="i6e-RP-goE"/>
+                                            <segue destination="HaE-5F-yiR" kind="show" identifier="ShowUser" id="i6e-RP-goE"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ec1e27d3f798b5b3c71cb898e8461860" translatesAutoresizingMaskIntoConstraints="NO" id="BAm-YC-bnS">
@@ -161,19 +161,19 @@
                                         <rect key="frame" x="122" y="26" width="462" height="82"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9H-ko-s2S">
-                                                <rect key="frame" x="0.0" y="0.0" width="462" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="462" height="27.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvL-3O-wS6">
-                                                <rect key="frame" x="0.0" y="28" width="462" height="27"/>
+                                                <rect key="frame" x="0.0" y="27.5" width="462" height="27"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JH-tk-XW8">
-                                                <rect key="frame" x="0.0" y="55" width="462" height="27"/>
+                                                <rect key="frame" x="0.0" y="54.5" width="462" height="27.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -279,10 +279,10 @@
             </objects>
             <point key="canvasLocation" x="3019" y="790"/>
         </scene>
-        <!--View Controller-->
+        <!--Swoosh User Detail View Controller-->
         <scene sceneID="7J8-L8-bKZ">
             <objects>
-                <viewController id="HaE-5F-yiR" sceneMemberID="viewController">
+                <viewController id="HaE-5F-yiR" customClass="SwooshUserDetailViewController" customModule="Swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aof-dA-eIQ"/>
                         <viewControllerLayoutGuide type="bottom" id="FXf-gs-g3a"/>
@@ -290,6 +290,17 @@
                     <view key="view" contentMode="scaleToFill" id="OcG-SF-CyY">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-oN-xna">
+                                <rect key="frame" x="20" y="20" width="240" height="170"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5F-4V-Tx7">
+                                <rect key="frame" x="20" y="212" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>

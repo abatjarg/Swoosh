@@ -97,8 +97,9 @@ struct DribbbleAPI {
                 let name = shotJson["user"]["name"].stringValue
                 let username = shotJson["user"]["username"].stringValue
                 let bio = shotJson["user"]["bio"].stringValue
+                let avatarUrl = shotJson["user"]["avatar_url"].stringValue
                 
-                let user = User(name: name, username: username, bio: bio)
+                let user = User(name: name, username: username, bio: bio, avatarUrl: NSURL(string: avatarUrl)!)
                 
                 finalShots.append(Shot(id: shotId, title: title, description: description, viewsCount: viewsCount, likesCount: likesCount, teaserImageUrl: NSURL(string: teaserImageUrl)!, normalImageUrl: NSURL(string: normalImageUrl)!, hidpiImageUrl: NSURL(string: hidpiImageUrl)!, user: user))
             }
