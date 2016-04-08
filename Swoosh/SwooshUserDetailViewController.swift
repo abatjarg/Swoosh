@@ -17,7 +17,7 @@ class SwooshUserDetailViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        print("\(user.name)")
+        super.viewDidLoad()
     }
     
 }
