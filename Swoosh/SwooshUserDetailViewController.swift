@@ -16,8 +16,19 @@ class SwooshUserDetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.imageView.image = user.image
+        self.nameLabel.text = user.name
+        self.usernameLabel.text = user.username
+        self.bioLabel.text = user.bio
     }
     
 }
