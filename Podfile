@@ -3,5 +3,6 @@ use_frameworks!
 
 target 'Swoosh' do
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+  pod 'BTNavigationDropdownMenu'
 end
 
