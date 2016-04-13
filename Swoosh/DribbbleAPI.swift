@@ -77,6 +77,11 @@ struct DribbbleAPI {
         return dribbbleURL(method: .MostCommentedShots, parameters: ["sort":"comments"])
     }
     
+    static func mostViewedShotsURL() -> NSURL {
+        return dribbbleURL(method: .MostCommentedShots, parameters: ["sort":"views"])
+    }
+
+    
     // To-do: Add guard statement to protect against invaled JSON
     static func photosFromJSONData(data: NSData) -> ShotsResult {
         

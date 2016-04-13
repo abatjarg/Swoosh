@@ -26,10 +26,10 @@ class ShotStore {
     }()
     
     // This method will be called form a class that uses ShotsStore (e.g SwooshViewController)
-    func fetchRecentShots(completion completion: (ShotsResult) -> Void) {
+    func fetchRecentShots(url: NSURL,completion: (ShotsResult) -> Void) {
         
         // Define URL with recent shots URL
-        let url = DribbbleAPI.recentShotsURL()
+        let url = url
         
         // Define the request object
         let request = NSURLRequest(URL: url)
