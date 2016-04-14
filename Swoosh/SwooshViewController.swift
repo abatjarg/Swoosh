@@ -68,7 +68,7 @@ class SwooshViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func refresh(url: NSURL) {
-        store.fetchRecentShots(url) {
+        store.fetchShots(url) {
             (shotsResult) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock() {

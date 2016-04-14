@@ -26,7 +26,7 @@ class ShotStore {
     }()
     
     // This method will be called form a class that uses ShotsStore (e.g SwooshViewController)
-    func fetchRecentShots(url: NSURL,completion: (ShotsResult) -> Void) {
+    func fetchShots(url: NSURL,completion: (ShotsResult) -> Void) {
         
         // Define URL with recent shots URL
         let url = url

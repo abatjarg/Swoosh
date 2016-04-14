@@ -14,7 +14,7 @@ import SwiftyJSON
 enum Method: String {
     case RecentShots = "sort=recent"
     case MostCommentedShots = "sort=comments"
-    
+    case MostViewedShots = "sort=views"
 }
 
 enum ShotsResult {
@@ -69,6 +69,10 @@ struct DribbbleAPI {
         return components.URL!
     }
     
+    static func userShotsURL() -> NSURL {
+        return dribbbleURL(method: <#T##Method#>, parameters: <#T##[String : String]?#>)
+    }
+    
     static func recentShotsURL() -> NSURL {
         return dribbbleURL(method: .RecentShots, parameters: ["sort":"recent"])
     }
@@ -78,7 +82,7 @@ struct DribbbleAPI {
     }
     
     static func mostViewedShotsURL() -> NSURL {
-        return dribbbleURL(method: .MostCommentedShots, parameters: ["sort":"views"])
+        return dribbbleURL(method: .MostViewedShots, parameters: ["sort":"views"])
     }
 
     

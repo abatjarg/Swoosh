@@ -42,7 +42,9 @@ class SwooshUserDetailViewController: UIViewController, UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let identifier = "Cell"
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! SwooshCollectionViewCell
+        
+        //cell.imageView.image = [indexPath.row].image
         
         return cell
     }
