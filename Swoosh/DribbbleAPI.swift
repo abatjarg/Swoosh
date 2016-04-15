@@ -36,12 +36,13 @@ struct DribbbleAPI {
     
     // Base API URL
     static let baseURLString = "https://api.dribbble.com/v1/shots"
+    static let baseURLString = "https://api.dribbble.com/v1/users"
     
     // Dribbble access token
     private static let access_token = "5938b1029b9fceeda8b683154b241ee91c43ae874769234687658e3cbaa4becd"
     
     // Construct the URL
-    private static func dribbbleURL(method method: Method, parameters: [String:String]?) -> NSURL {
+    private static func dribbbleURL(baseUrl: NSURL,method method: Method, parameters: [String:String]?) -> NSURL {
         
         let components = NSURLComponents(string: baseURLString)!
         
@@ -68,6 +69,8 @@ struct DribbbleAPI {
         
         return components.URL!
     }
+    
+    // https://api.dribbble.com/v1/users/21158/shots?access_token=5938b1029b9fceeda8b683154b241ee91c43ae874769234687658e3cbaa4becd&per_page=100
     
     static func userShotsURL() -> NSURL {
         return dribbbleURL(method: <#T##Method#>, parameters: <#T##[String : String]?#>)
